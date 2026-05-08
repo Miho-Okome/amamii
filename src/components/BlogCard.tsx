@@ -5,25 +5,28 @@ import { BlogPost } from "@/data/blog";
 export default function BlogCard({ post }: { post: BlogPost }) {
   return (
     <Link href={`/blog/${post.slug}`} className="group block">
-      <div className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-md transition-shadow">
-        <div className="relative h-44 w-full overflow-hidden">
+      <div className="bg-white overflow-hidden hover:shadow-md transition-shadow duration-300">
+        <div className="relative h-52 w-full overflow-hidden">
           <Image
             src={post.image}
             alt={post.title}
             fill
-            className="object-cover group-hover:scale-105 transition-transform duration-300"
+            className="object-cover group-hover:scale-105 transition-transform duration-500"
             sizes="(max-width: 768px) 100vw, 33vw"
           />
-          <span className="absolute top-2 left-2 bg-orange-500 text-white text-xs rounded-full px-3 py-1">
+          <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
+        </div>
+        <div className="p-5 border-b border-[#ede8e0]">
+          <span className="text-[#c4954a] text-[10px] font-bold tracking-widest uppercase block mb-2">
             {post.category}
           </span>
-        </div>
-        <div className="p-4">
-          <h3 className="font-bold text-gray-800 text-sm leading-snug mb-2 group-hover:text-teal-600 transition-colors line-clamp-2">
+          <h3 className="font-bold text-[#1b3d5c] text-sm leading-snug line-clamp-2 group-hover:text-[#c4954a] transition-colors">
             {post.title}
           </h3>
-          <p className="text-xs text-gray-500 leading-relaxed line-clamp-2 mb-2">{post.excerpt}</p>
-          <p className="text-xs text-gray-400">{post.date}</p>
+        </div>
+        <div className="px-5 py-3 flex items-center justify-between">
+          <span className="text-[10px] text-gray-400">{post.date}</span>
+          <span className="text-[#c4954a] text-xs font-medium">Read more →</span>
         </div>
       </div>
     </Link>
