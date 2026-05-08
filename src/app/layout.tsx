@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Noto_Sans_JP } from "next/font/google";
+import { Noto_Sans_JP, Playfair_Display } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
 import Header from "@/components/Header";
@@ -11,6 +11,13 @@ const notoSansJP = Noto_Sans_JP({
   subsets: ["latin"],
   weight: ["400", "500", "700"],
   display: "swap",
+});
+
+const playfair = Playfair_Display({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  display: "swap",
+  variable: "--font-display",
 });
 
 export const metadata: Metadata = {
@@ -56,7 +63,7 @@ export default function RootLayout({
           />
         )}
       </head>
-      <body className={`${notoSansJP.className} bg-gray-50 text-gray-800`}>
+      <body className={`${notoSansJP.className} ${playfair.variable} bg-[#faf8f5] text-gray-800`}>
         <GoogleAnalytics />
         <WebSiteSchema />
         <Header />

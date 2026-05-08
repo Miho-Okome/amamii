@@ -1,8 +1,11 @@
 @import "tailwindcss";
 
 :root {
-  --background: #f9fafb;
+  --background: #faf8f5;
   --foreground: #1f2937;
+  --navy: #1b3d5c;
+  --gold: #c4954a;
+  --cream: #faf8f5;
 }
 
 body {
@@ -10,6 +13,62 @@ body {
   color: var(--foreground);
 }
 
+.font-display {
+  font-family: var(--font-display), Georgia, serif;
+}
+
+/* Luxury prose styles for blog articles */
+.prose-article h2 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #1b3d5c;
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #c4954a;
+}
+
+.prose-article h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #1b3d5c;
+  margin-top: 1.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.prose-article p {
+  margin-bottom: 1.25rem;
+  line-height: 1.85;
+  font-size: 0.9rem;
+  color: #374151;
+}
+
+.prose-article ul {
+  list-style: none;
+  margin-bottom: 1.25rem;
+  padding-left: 0.25rem;
+}
+
+.prose-article ul li {
+  position: relative;
+  padding-left: 1.25rem;
+  margin-bottom: 0.4rem;
+  font-size: 0.875rem;
+  color: #374151;
+}
+
+.prose-article ul li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.6em;
+  width: 6px;
+  height: 6px;
+  background: #c4954a;
+  border-radius: 50%;
+}
+
+/* Legacy prose for other pages */
 .prose h2 {
   font-size: 1.25rem;
   font-weight: 700;
@@ -46,6 +105,13 @@ body {
 .line-clamp-2 {
   display: -webkit-box;
   -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
